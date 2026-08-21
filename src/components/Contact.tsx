@@ -310,7 +310,7 @@ export function Contact() {
                       onChange={(event) =>
                         updateValue("message", event.target.value)
                       }
-                      className={`h-[186px] w-full resize-none rounded-[10px] border bg-[rgba(16,16,16,0.7)] px-4 py-5 text-[14px] leading-7 font-medium tracking-[0.28px] text-[#f1f2f2] outline-none placeholder:text-[#ededed] placeholder:opacity-50 ${stateClass}`}
+                      className={`h-[161px] w-full resize-none rounded-[10px] border bg-[rgba(16,16,16,0.7)] pt-5 pr-4 pb-5 pl-4 text-[14px] leading-7 font-medium tracking-[0.28px] text-[#f1f2f2] outline-none placeholder:text-[#ededed] placeholder:opacity-50 md:h-[138px] ${stateClass}`}
                     />
                     {state.showError && (
                       <span
