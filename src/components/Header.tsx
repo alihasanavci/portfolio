@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Montserrat } from "next/font/google";
 import { useEffect, useState } from "react";
 import { scrollToSection } from "./SectionScrollButton";
+import styles from "./Header.module.css";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -225,7 +226,7 @@ export function Header() {
                 <button
                   type="button"
                   onClick={() => navigateToSection(item.sectionId)}
-                  className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both]"
+                  className={`${styles.desktopNavItem} [text-box-edge:cap_alphabetic] [text-box-trim:trim-both]`}
                 >
                   {item.label}
                 </button>
