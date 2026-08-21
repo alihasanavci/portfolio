@@ -40,7 +40,11 @@ export function Header() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-40 flex h-[94px] w-full items-center justify-between bg-black px-7 py-8 md:hidden">
+      <header
+        className={`fixed inset-x-0 top-0 flex h-[94px] w-full items-center justify-between bg-black px-7 py-8 md:hidden ${
+          isMenuOpen ? "z-[60]" : "z-40"
+        }`}
+      >
         <a href="#" aria-label="Ali Hasan Avcı ana sayfa">
           <Image
             src="/logo.svg"
