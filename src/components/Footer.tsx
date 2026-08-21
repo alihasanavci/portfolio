@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
+import styles from "./Footer.module.css";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -7,10 +8,10 @@ const montserrat = Montserrat({
 });
 
 const linkClass =
-  "h-[10px] leading-[10px] whitespace-nowrap opacity-50 transition-opacity duration-300 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none";
+  `${styles.link} h-[10px] leading-[10px] whitespace-nowrap`;
 
 const mobileLinkClass =
-  "leading-7 whitespace-nowrap opacity-50 transition-opacity duration-300 hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-none";
+  `${styles.link} leading-7 whitespace-nowrap`;
 
 export function Footer() {
   return (

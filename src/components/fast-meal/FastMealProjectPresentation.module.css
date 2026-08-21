@@ -1,0 +1,33 @@
+.behanceCta {
+  color: #fff;
+  cursor: pointer;
+  transition:
+    color 275ms ease,
+    opacity 115ms ease,
+    transform 115ms ease;
+}
+
+.behanceCta:hover {
+  color: #dd2590;
+}
+
+.behanceCta:active {
+  opacity: 0.88;
+  transform: scale(0.98);
+}
+
+.behanceArrow {
+  width: 25.456px;
+  height: 25.456px;
+  background-color: currentColor;
+  mask: url("/fast-meal/behance-arrow.svg") center / contain no-repeat;
+  transition: background-color 275ms ease;
+  -webkit-mask: url("/fast-meal/behance-arrow.svg") center / contain no-repeat;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .behanceCta,
+  .behanceArrow {
+    transition-duration: 1ms;
+  }
+}
