@@ -1,0 +1,8 @@
+.photo {
+  filter: grayscale(100%);
+  transition: filter 500ms ease;
+}
+
+.photo:hover {
+  filter: grayscale(0%);
+}

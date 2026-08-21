@@ -1,0 +1,15 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="streamline-sharp:star-2-solid" clip-path="url(#clip0_0_4)">
+<path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M15.38 8.65L12 0.986L8.62 8.65L0.953 12.03L8.62 15.41L12 23.078L15.38 15.41L23.047 12.03L15.38 8.65Z" fill="url(#paint0_linear_0_4)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_4" x1="0.953" y1="12.032" x2="23.047" y2="12.032" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F25AAE"/>
+<stop offset="0.504808" stop-color="#DD2590"/>
+<stop offset="1" stop-color="#B91F78"/>
+</linearGradient>
+<clipPath id="clip0_0_4">
+<rect width="24" height="24" fill="white"/>
+</clipPath>
+</defs>
+</svg>

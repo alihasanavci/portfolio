@@ -1,0 +1,62 @@
+.button {
+  transition:
+    color 275ms ease,
+    opacity 125ms ease,
+    transform 125ms ease;
+}
+
+.button:active {
+  opacity: 0.88;
+  transform: scale(0.98);
+}
+
+.primary {
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    #f25aae 0%,
+    #dd2590 50.481%,
+    #b91f78 100%
+  );
+  color: #fff;
+}
+
+.primary::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  content: "";
+  background: #fff;
+  opacity: 0;
+  transition: opacity 275ms ease;
+}
+
+.primary > * {
+  position: relative;
+  z-index: 1;
+}
+
+.primary:hover {
+  color: #000;
+}
+
+.primary:hover::before {
+  opacity: 1;
+}
+
+.secondary {
+  color: #fff;
+}
+
+.secondary:hover {
+  color: #dd2590;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .primary::before {
+    transition-duration: 1ms;
+  }
+}
