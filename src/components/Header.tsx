@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
-import { MouseEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { scrollToSection } from "./SectionScrollButton";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -20,30 +21,29 @@ const navigationItems = [
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  function scrollToSection(
-    event: MouseEvent<HTMLButtonElement>,
-    sectionId: string,
-    closeMenu = false,
-  ) {
-    event.preventDefault();
+  function navigateToSection(sectionId: string, closeMenu = false) {
     if (closeMenu) setIsMenuOpen(false);
+    scrollToSection(sectionId);
+  }
 
-    requestAnimationFrame(() => {
-      const section = document.getElementById(sectionId);
-      if (!section) return;
-
-      const mobileHeaderOffset = window.matchMedia("(max-width: 767px)").matches
-        ? 94
-        : 0;
-      const top = section.getBoundingClientRect().top + window.scrollY - mobileHeaderOffset;
-      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-      window.scrollTo({
-        top,
-        behavior: reduceMotion ? "auto" : "smooth",
-      });
+  function navigateHome(closeMenu = false) {
+    if (closeMenu) setIsMenuOpen(false);
+    if (window.location.hash) {
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+    window.scrollTo({
+      top: 0,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth",
     });
   }
+
+  useEffect(() => {
+    if (window.location.hash) {
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+  }, []);
 
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -70,7 +70,7 @@ export function Header() {
           isMenuOpen ? "z-[60]" : "z-40"
         }`}
       >
-        <a href="#" aria-label="Ali Hasan Avcı ana sayfa">
+        <button type="button" aria-label="Ali Hasan Avcı ana sayfa" onClick={() => navigateHome()}>
           <Image
             src="/logo.svg"
             alt="Ali Hasan Avcı"
@@ -79,7 +79,7 @@ export function Header() {
             priority
             className="h-[32.047px] w-[168.113px]"
           />
-        </a>
+        </button>
 
         <button
           type="button"
@@ -122,10 +122,10 @@ export function Header() {
           className={`${montserrat.className} fixed inset-0 z-50 h-dvh w-full overflow-y-auto bg-black text-white md:hidden`}
         >
           <div className="flex h-[94px] w-full items-center justify-between px-7 py-8">
-            <a
-              href="#"
+            <button
+              type="button"
               aria-label="Ali Hasan Avcı ana sayfa"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => navigateHome(true)}
             >
               <Image
                 src="/logo.svg"
@@ -135,7 +135,7 @@ export function Header() {
                 priority
                 className="h-[32.047px] w-[168.113px]"
               />
-            </a>
+            </button>
 
             <span aria-hidden="true" className="size-[30px]" />
           </div>
@@ -147,9 +147,7 @@ export function Header() {
                   <li key={`mobile-${item.sectionId}`}>
                     <button
                       type="button"
-                      onClick={(event) =>
-                        scrollToSection(event, item.sectionId, true)
-                      }
+                      onClick={() => navigateToSection(item.sectionId, true)}
                       className="transition-opacity duration-300 hover:opacity-70 focus-visible:opacity-70 focus-visible:outline-none [text-box-edge:cap_alphabetic] [text-box-trim:trim-both]"
                     >
                       {item.label}
@@ -209,7 +207,7 @@ export function Header() {
       )}
 
       <header className="mx-auto hidden h-[99px] w-full max-w-[1440px] items-center justify-between px-[200px] md:flex">
-        <a href="#" aria-label="Ali Hasan Avcı ana sayfa">
+        <button type="button" aria-label="Ali Hasan Avcı ana sayfa" onClick={() => navigateHome()}>
           <Image
             src="/logo.svg"
             alt="Ali Hasan Avcı"
@@ -218,7 +216,7 @@ export function Header() {
             priority
             className="h-[42.973px] w-[225.265px]"
           />
-        </a>
+        </button>
 
         <nav aria-label="Ana navigasyon">
           <ul className="flex items-center gap-10 whitespace-nowrap text-[14px] leading-normal font-medium text-white">
@@ -226,7 +224,7 @@ export function Header() {
               <li key={item.sectionId} style={{ width: item.width }}>
                 <button
                   type="button"
-                  onClick={(event) => scrollToSection(event, item.sectionId)}
+                  onClick={() => navigateToSection(item.sectionId)}
                   className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both]"
                 >
                   {item.label}

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
 import buttonStyles from "./Button.module.css";
+import { SectionScrollButton } from "./SectionScrollButton";
 
 const montserratRegular = Montserrat({
   subsets: ["latin"],
@@ -62,15 +63,15 @@ export function Hero() {
         </h1>
 
         <div className="flex w-full items-center gap-[clamp(4px,4vw,16px)]">
-          <a
-            href="#projeler"
+          <SectionScrollButton
+            sectionId="projeler"
             className={`${buttonStyles.button} ${buttonStyles.primary} flex h-[51px] w-[clamp(112px,32.59vw,131px)] shrink-0 items-center justify-center rounded-full px-4 text-[16px] leading-normal font-normal whitespace-nowrap min-[402px]:px-6`}
           >
             <span>Projelerim</span>
-          </a>
+          </SectionScrollButton>
 
-          <a
-            href="#iletisim"
+          <SectionScrollButton
+            sectionId="iletisim"
             className={`${buttonStyles.button} ${buttonStyles.secondary} flex h-[52px] min-w-0 flex-1 items-center justify-center gap-1 rounded-full px-2 text-[16px] leading-normal font-normal whitespace-nowrap min-[402px]:w-[181.456px] min-[402px]:flex-none min-[402px]:px-6`}
           >
             İletişime Geç
@@ -81,7 +82,7 @@ export function Hero() {
                 </svg>
               </span>
             </span>
-          </a>
+          </SectionScrollButton>
         </div>
       </div>
     </section>

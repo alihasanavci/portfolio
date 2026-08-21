@@ -1,5 +1,6 @@
 import Image from "next/image";
 import buttonStyles from "./Button.module.css";
+import { SectionScrollButton } from "./SectionScrollButton";
 import { Montserrat } from "next/font/google";
 
 const montserrat = Montserrat({
@@ -214,8 +215,8 @@ export function Projects() {
         </div>
 
         <div className="flex h-[52px] w-full items-center justify-center">
-          <a
-            href="#"
+          <SectionScrollButton
+            sectionId="projeler"
             className={`${buttonStyles.button} ${buttonStyles.secondary} flex h-[52px] items-center justify-center gap-1 rounded-full px-6 py-5 text-[16px] leading-normal font-normal`}
           >
             <span>Tüm Projelerimi Gör</span>
@@ -225,7 +226,7 @@ export function Projects() {
             >
               ↗
             </span>
-          </a>
+          </SectionScrollButton>
         </div>
       </div>
     </section>
