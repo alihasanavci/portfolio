@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import type { ReactNode } from "react";
 import buttonStyles from "./Button.module.css";
 import { SectionScrollButton } from "./SectionScrollButton";
 import { Montserrat } from "next/font/google";
@@ -17,6 +19,7 @@ const projects = [
     image: "/project-pos.jpeg",
     imageAlt: "Restoran POS arayüzü tablet sunumu",
     imageSide: "right",
+    href: "/fast-meal",
   },
   {
     title:
@@ -27,6 +30,7 @@ const projects = [
     image: "/project-weather.jpeg",
     imageAlt: "Mobil hava durumu uygulaması telefon sunumu",
     imageSide: "left",
+    href: null,
   },
   {
     title:
@@ -37,8 +41,25 @@ const projects = [
     image: "/project-crypto.jpeg",
     imageAlt: "Kripto işlem platformu dizüstü bilgisayar sunumu",
     imageSide: "right",
+    href: null,
   },
 ] as const;
+
+function ProjectCardLink({
+  href,
+  children,
+}: {
+  href: string | null;
+  children: ReactNode;
+}) {
+  if (!href) return children;
+
+  return (
+    <Link href={href} className="block w-full cursor-pointer">
+      {children}
+    </Link>
+  );
+}
 
 function ProjectText({ project }: { project: (typeof projects)[number] }) {
   return (
@@ -78,7 +99,8 @@ function ProjectImage({ project }: { project: (typeof projects)[number] }) {
 
 function MobileProject({ project }: { project: (typeof projects)[number] }) {
   return (
-    <article className="flex w-full flex-col items-start gap-10 rounded-[24px] border border-[#262626] p-5">
+    <ProjectCardLink href={project.href}>
+      <article className="flex w-full flex-col items-start gap-10 rounded-[24px] border border-[#262626] p-5">
       <div className="flex w-full flex-col items-start gap-10">
         <div className="flex w-full flex-col items-start gap-5 font-medium">
           <h3 className="w-full text-[24px] leading-7 text-white">
@@ -108,7 +130,8 @@ function MobileProject({ project }: { project: (typeof projects)[number] }) {
           className="object-cover"
         />
       </div>
-    </article>
+      </article>
+    </ProjectCardLink>
   );
 }
 
@@ -195,22 +218,21 @@ export function Projects() {
 
         <div className="flex w-full flex-col gap-10">
           {projects.map((project) => (
-            <article
-              key={project.title}
-              className="flex h-[580px] w-full items-start gap-20 rounded-[24px] border border-[#262626] p-10"
-            >
-              {project.imageSide === "left" ? (
-                <>
-                  <ProjectImage project={project} />
-                  <ProjectText project={project} />
-                </>
-              ) : (
-                <>
-                  <ProjectText project={project} />
-                  <ProjectImage project={project} />
-                </>
-              )}
-            </article>
+            <ProjectCardLink key={project.title} href={project.href}>
+              <article className="flex h-[580px] w-full items-start gap-20 rounded-[24px] border border-[#262626] p-10">
+                {project.imageSide === "left" ? (
+                  <>
+                    <ProjectImage project={project} />
+                    <ProjectText project={project} />
+                  </>
+                ) : (
+                  <>
+                    <ProjectText project={project} />
+                    <ProjectImage project={project} />
+                  </>
+                )}
+              </article>
+            </ProjectCardLink>
           ))}
         </div>
 
