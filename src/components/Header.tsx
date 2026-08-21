@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
-import { useEffect, useState } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -10,15 +10,40 @@ const montserrat = Montserrat({
 });
 
 const navigationItems = [
-  { label: "Hakkımda", href: "#hakkimda", width: 74 },
-  { label: "Deneyimler", href: "#deneyimler", width: 83 },
-  { label: "Projeler", href: "#projeler", width: 56 },
-  { label: "Beceriler", href: "#beceriler", width: 64 },
-  { label: "İletişim", href: "#iletisim", width: 53 },
+  { label: "Hakkımda", sectionId: "hakkimda", width: 74 },
+  { label: "Deneyimler", sectionId: "deneyimler", width: 83 },
+  { label: "Projeler", sectionId: "projeler", width: 56 },
+  { label: "Beceriler", sectionId: "beceriler", width: 64 },
+  { label: "İletişim", sectionId: "iletisim", width: 53 },
 ] as const;
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  function scrollToSection(
+    event: MouseEvent<HTMLButtonElement>,
+    sectionId: string,
+    closeMenu = false,
+  ) {
+    event.preventDefault();
+    if (closeMenu) setIsMenuOpen(false);
+
+    requestAnimationFrame(() => {
+      const section = document.getElementById(sectionId);
+      if (!section) return;
+
+      const mobileHeaderOffset = window.matchMedia("(max-width: 767px)").matches
+        ? 94
+        : 0;
+      const top = section.getBoundingClientRect().top + window.scrollY - mobileHeaderOffset;
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      window.scrollTo({
+        top,
+        behavior: reduceMotion ? "auto" : "smooth",
+      });
+    });
+  }
 
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -119,14 +144,16 @@ export function Header() {
             <nav aria-label="Mobil ana navigasyon">
               <ul className="flex flex-col items-start gap-10 text-[20px] leading-[normal] font-medium">
                 {navigationItems.map((item) => (
-                  <li key={`mobile-${item.href}`}>
-                    <a
-                      href={item.href}
-                      onClick={() => setIsMenuOpen(false)}
+                  <li key={`mobile-${item.sectionId}`}>
+                    <button
+                      type="button"
+                      onClick={(event) =>
+                        scrollToSection(event, item.sectionId, true)
+                      }
                       className="transition-opacity duration-300 hover:opacity-70 focus-visible:opacity-70 focus-visible:outline-none [text-box-edge:cap_alphabetic] [text-box-trim:trim-both]"
                     >
                       {item.label}
-                    </a>
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -196,13 +223,14 @@ export function Header() {
         <nav aria-label="Ana navigasyon">
           <ul className="flex items-center gap-10 whitespace-nowrap text-[14px] leading-normal font-medium text-white">
             {navigationItems.map((item) => (
-              <li key={item.href} style={{ width: item.width }}>
-                <a
-                  href={item.href}
+              <li key={item.sectionId} style={{ width: item.width }}>
+                <button
+                  type="button"
+                  onClick={(event) => scrollToSection(event, item.sectionId)}
                   className="[text-box-edge:cap_alphabetic] [text-box-trim:trim-both]"
                 >
                   {item.label}
-                </a>
+                </button>
               </li>
             ))}
           </ul>
