@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Montserrat } from "next/font/google";
 import headerStyles from "../Header.module.css";
 import { HeaderLogoLink } from "../HeaderLogoLink";
+import { SectionNavigationButton } from "../SectionNavigation";
 import {
   desktopHeaderLayoutClass,
   desktopNavigationListClass,
@@ -32,9 +33,12 @@ export function FastMealHero() {
             <ul className={desktopNavigationListClass}>
               {headerNavigationItems.map((item) => (
                 <li key={item.sectionId} style={{ width: item.width }}>
-                  <button type="button" className={headerStyles.desktopNavItem}>
+                  <SectionNavigationButton
+                    sectionId={item.sectionId}
+                    className={headerStyles.desktopNavItem}
+                  >
                     {item.label}
-                  </button>
+                  </SectionNavigationButton>
                 </li>
               ))}
             </ul>

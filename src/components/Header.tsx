@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { scrollToSection } from "./SectionScrollButton";
+import { useSectionNavigation } from "./SectionNavigation";
 import styles from "./Header.module.css";
 import { MobileMenuOverlay } from "./MobileMenuOverlay";
 import { HeaderLogoLink } from "./HeaderLogoLink";
@@ -14,10 +14,11 @@ import {
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useSectionNavigation();
 
   function navigateToSection(sectionId: string, closeMenu = false) {
     if (closeMenu) setIsMenuOpen(false);
-    scrollToSection(sectionId);
+    navigate(sectionId);
   }
 
   useEffect(() => {

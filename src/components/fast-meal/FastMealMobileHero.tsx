@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
 import { useEffect, useState } from "react";
-import { scrollToSection } from "../SectionScrollButton";
+import { useSectionNavigation } from "../SectionNavigation";
 import { MobileMenuOverlay } from "../MobileMenuOverlay";
 import { HeaderLogoLink } from "../HeaderLogoLink";
 import { mobileHeaderLayoutClass } from "../HeaderLayout";
@@ -15,10 +15,11 @@ const montserrat = Montserrat({
 
 export function FastMealMobileHero() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useSectionNavigation();
 
   function navigateToSection(sectionId: string) {
     setIsMenuOpen(false);
-    scrollToSection(sectionId);
+    navigate(sectionId);
   }
 
   useEffect(() => {
