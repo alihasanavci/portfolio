@@ -1,18 +1,16 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { scrollToSection } from "./SectionScrollButton";
 import styles from "./Header.module.css";
 import { MobileMenuOverlay } from "./MobileMenuOverlay";
-
-const navigationItems = [
-  { label: "Hakkımda", sectionId: "hakkimda", width: 74 },
-  { label: "Deneyimler", sectionId: "deneyimler", width: 83 },
-  { label: "Projeler", sectionId: "projeler", width: 56 },
-  { label: "Beceriler", sectionId: "beceriler", width: 64 },
-  { label: "İletişim", sectionId: "iletisim", width: 53 },
-] as const;
+import { HeaderLogoLink } from "./HeaderLogoLink";
+import {
+  desktopHeaderLayoutClass,
+  desktopNavigationListClass,
+  headerNavigationItems,
+  mobileHeaderLayoutClass,
+} from "./HeaderLayout";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,19 +18,6 @@ export function Header() {
   function navigateToSection(sectionId: string, closeMenu = false) {
     if (closeMenu) setIsMenuOpen(false);
     scrollToSection(sectionId);
-  }
-
-  function navigateHome(closeMenu = false) {
-    if (closeMenu) setIsMenuOpen(false);
-    if (window.location.hash) {
-      window.history.replaceState(null, "", window.location.pathname);
-    }
-    window.scrollTo({
-      top: 0,
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        ? "auto"
-        : "smooth",
-    });
   }
 
   useEffect(() => {
@@ -62,20 +47,11 @@ export function Header() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 flex h-[94px] w-full items-center justify-between bg-black px-7 py-8 md:hidden ${
+        className={`${mobileHeaderLayoutClass} ${
           isMenuOpen ? "z-[60]" : "z-40"
         }`}
       >
-        <button type="button" aria-label="Ali Hasan Avcı ana sayfa" onClick={() => navigateHome()}>
-          <Image
-            src="/logo.svg"
-            alt="Ali Hasan Avcı"
-            width={168}
-            height={32}
-            priority
-            className="h-[32.047px] w-[168.113px]"
-          />
-        </button>
+        <HeaderLogoLink mobile />
 
         <button
           type="button"
@@ -113,25 +89,16 @@ export function Header() {
         <MobileMenuOverlay
           id="mobile-menu"
           onNavigate={(sectionId) => navigateToSection(sectionId, true)}
-          onNavigateHome={() => navigateHome(true)}
+          onClose={() => setIsMenuOpen(false)}
         />
       )}
 
-      <header className="mx-auto hidden h-[99px] w-full max-w-[1440px] items-center justify-between px-[200px] md:flex">
-        <button type="button" aria-label="Ali Hasan Avcı ana sayfa" onClick={() => navigateHome()}>
-          <Image
-            src="/logo.svg"
-            alt="Ali Hasan Avcı"
-            width={225}
-            height={43}
-            priority
-            className="h-[42.973px] w-[225.265px]"
-          />
-        </button>
+      <header className={desktopHeaderLayoutClass}>
+        <HeaderLogoLink />
 
         <nav aria-label="Ana navigasyon">
-          <ul className="flex items-center gap-10 whitespace-nowrap text-[14px] leading-normal font-medium text-white">
-            {navigationItems.map((item) => (
+          <ul className={desktopNavigationListClass}>
+            {headerNavigationItems.map((item) => (
               <li key={item.sectionId} style={{ width: item.width }}>
                 <button
                   type="button"

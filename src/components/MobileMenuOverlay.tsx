@@ -5,6 +5,7 @@ import {
   mobileNavigationLinkClass,
   mobileSocialLinkClass,
 } from "./HeaderInteractions";
+import { HeaderLogoLink } from "./HeaderLogoLink";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -22,13 +23,13 @@ const navigationItems = [
 type MobileMenuOverlayProps = {
   id: string;
   onNavigate: (sectionId: string) => void;
-  onNavigateHome: () => void;
+  onClose: () => void;
 };
 
 export function MobileMenuOverlay({
   id,
   onNavigate,
-  onNavigateHome,
+  onClose,
 }: MobileMenuOverlayProps) {
   return (
     <div
@@ -39,20 +40,7 @@ export function MobileMenuOverlay({
       className={`${montserrat.className} fixed inset-0 z-50 h-dvh w-full overflow-y-auto bg-black text-white md:hidden`}
     >
       <div className="flex h-[94px] w-full items-center justify-between px-7 py-8">
-        <button
-          type="button"
-          aria-label="Ali Hasan Avcı ana sayfa"
-          onClick={onNavigateHome}
-        >
-          <Image
-            src="/logo.svg"
-            alt="Ali Hasan Avcı"
-            width={168}
-            height={32}
-            priority
-            className="h-[32.047px] w-[168.113px]"
-          />
-        </button>
+        <HeaderLogoLink mobile onActivate={onClose} />
 
         <span aria-hidden="true" className="size-[30px]" />
       </div>

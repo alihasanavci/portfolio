@@ -1,20 +1,18 @@
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
 import headerStyles from "../Header.module.css";
+import { HeaderLogoLink } from "../HeaderLogoLink";
+import {
+  desktopHeaderLayoutClass,
+  desktopNavigationListClass,
+  headerNavigationItems,
+} from "../HeaderLayout";
 import { FastMealMobileHero } from "./FastMealMobileHero";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["500", "600"],
 });
-
-const navigationItems = [
-  "Hakkımda",
-  "Deneyimler",
-  "Projeler",
-  "Beceriler",
-  "İletişim",
-] as const;
 
 const desktopContainer =
   "absolute left-1/2 w-[1240px] -translate-x-1/2";
@@ -27,29 +25,20 @@ export function FastMealHero() {
         aria-labelledby="fast-meal-title"
         className={`${montserrat.className} relative hidden h-[1001px] min-w-[1440px] overflow-visible bg-black md:block`}
       >
-      <header className="absolute top-0 left-0 h-[99px] w-full">
-        <div
-          className={`${desktopContainer} top-0 flex h-[99px] items-center justify-between px-[100px] py-7`}
-        >
-          <Image
-            src="/fast-meal/logo.svg"
-            alt="Ali Hasan Avcı"
-            width={226}
-            height={43}
-            priority
-            className="h-[42.973px] w-[225.265px]"
-          />
+      <header className={`${desktopHeaderLayoutClass} absolute top-0 left-1/2 -translate-x-1/2`}>
+          <HeaderLogoLink />
 
           <nav aria-label="Ana navigasyon">
-            <ul className="flex items-center gap-10 text-[14px] leading-normal font-medium whitespace-nowrap text-white">
-              {navigationItems.map((item) => (
-                <li key={item} className={headerStyles.desktopNavItem}>
-                  {item}
+            <ul className={desktopNavigationListClass}>
+              {headerNavigationItems.map((item) => (
+                <li key={item.sectionId} style={{ width: item.width }}>
+                  <button type="button" className={headerStyles.desktopNavItem}>
+                    {item.label}
+                  </button>
                 </li>
               ))}
             </ul>
           </nav>
-        </div>
       </header>
 
       <div className={`${desktopContainer} top-[99px]`}>

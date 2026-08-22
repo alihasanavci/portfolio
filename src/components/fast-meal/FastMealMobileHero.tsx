@@ -5,6 +5,8 @@ import { Montserrat } from "next/font/google";
 import { useEffect, useState } from "react";
 import { scrollToSection } from "../SectionScrollButton";
 import { MobileMenuOverlay } from "../MobileMenuOverlay";
+import { HeaderLogoLink } from "../HeaderLogoLink";
+import { mobileHeaderLayoutClass } from "../HeaderLayout";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -17,19 +19,6 @@ export function FastMealMobileHero() {
   function navigateToSection(sectionId: string) {
     setIsMenuOpen(false);
     scrollToSection(sectionId);
-  }
-
-  function navigateHome() {
-    setIsMenuOpen(false);
-    if (window.location.hash) {
-      window.history.replaceState(null, "", window.location.pathname);
-    }
-    window.scrollTo({
-      top: 0,
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        ? "auto"
-        : "smooth",
-    });
   }
 
   useEffect(() => {
@@ -64,24 +53,11 @@ export function FastMealMobileHero() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[155px] bg-[#fafafa]" />
 
       <header
-        className={`fixed inset-x-0 top-0 flex h-[94px] w-full items-center justify-between bg-black px-7 py-8 ${
+        className={`${mobileHeaderLayoutClass} ${
           isMenuOpen ? "z-[60]" : "z-40"
         }`}
       >
-        <button
-          type="button"
-          aria-label="Fast Meal sayfasının başına git"
-          onClick={navigateHome}
-        >
-          <Image
-            src="/logo.svg"
-            alt="Ali Hasan Avcı"
-            width={168}
-            height={32}
-            priority
-            className="h-[32.047px] w-[168.113px]"
-          />
-        </button>
+        <HeaderLogoLink mobile />
 
         <button
           type="button"
@@ -119,7 +95,7 @@ export function FastMealMobileHero() {
         <MobileMenuOverlay
           id="fast-meal-mobile-menu"
           onNavigate={navigateToSection}
-          onNavigateHome={navigateHome}
+          onClose={() => setIsMenuOpen(false)}
         />
       )}
 
