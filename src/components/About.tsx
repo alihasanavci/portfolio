@@ -66,11 +66,12 @@ export function About() {
 
         <div className="relative aspect-[346/500] w-full shrink-0 overflow-hidden rounded-[24px] border border-[#e4e4e4] bg-[#f7f7f7]">
           <Image
-            src="/about-photo.png"
+            src="/about-photo-v2.png"
             alt="Ali Hasan Avcı"
-            fill
+            width={527}
+            height={702}
             sizes="(max-width: 767px) calc(100vw - 56px), 376px"
-            className={`${styles.photo} object-cover`}
+            className={`${styles.photo} absolute left-[calc(50%-11.5px)] top-[calc(50%-45px)] h-[702px] w-[527px] max-w-none -translate-x-1/2 -translate-y-1/2 object-cover object-center`}
           />
 
           <div className="pointer-events-none absolute inset-x-[19px] bottom-[19px] flex flex-col items-start gap-4 rounded-[16px] border border-[#e4e4e4] bg-white px-5 py-6 leading-7 backdrop-blur-[7px]">
@@ -87,11 +88,11 @@ export function About() {
       <div className="mx-auto hidden h-full w-full max-w-[1440px] items-start gap-[60px] px-[200px] py-[120px] md:flex">
         <div className="relative h-[500px] w-[376px] shrink-0 overflow-hidden rounded-[24px] border border-[#e4e4e4] bg-[#f7f7f7]">
           <Image
-            src="/about-photo.png"
+            src="/about-photo-v2.png"
             alt="Ali Hasan Avcı"
-            width={376}
-            height={500}
-            className={`${styles.photo} absolute inset-0 h-full w-full object-cover object-center`}
+            width={527}
+            height={702}
+            className={`${styles.photo} absolute left-[calc(50%-11.5px)] top-[calc(50%-45px)] h-[702px] w-[527px] max-w-none -translate-x-1/2 -translate-y-1/2 object-cover object-center`}
           />
 
           <div className="pointer-events-none absolute bottom-[19px] left-[19px] flex h-[83px] w-[336px] flex-col items-start gap-4 rounded-[16px] border border-[#e4e4e4] bg-white px-5 py-6 leading-7 backdrop-blur-[7px]">
