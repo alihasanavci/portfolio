@@ -7,8 +7,9 @@ export const desktopNavigationListClass =
 export const mobileHeaderLayoutClass =
   "fixed inset-x-0 top-0 flex h-[94px] w-full items-center justify-between bg-black px-7 py-8 md:hidden";
 
-export const desktopLogoClass = "h-[42.973px] w-[225.265px]";
-export const mobileLogoClass = "h-[32.047px] w-[168.113px]";
+export const desktopLogoClass =
+  "relative h-[36px] w-[188.714px] -translate-y-[3.5px]";
+export const mobileLogoClass = "h-[30px] w-[156.807px]";
 
 export const headerNavigationItems = [
   { label: "Hakkımda", sectionId: "hakkimda", width: 74 },

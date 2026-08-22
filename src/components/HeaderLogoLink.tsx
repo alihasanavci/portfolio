@@ -41,8 +41,8 @@ export function HeaderLogoLink({ mobile = false, onActivate }: HeaderLogoLinkPro
       <Image
         src="/logo.svg"
         alt="Ali Hasan Avcı"
-        width={mobile ? 168 : 225}
-        height={mobile ? 32 : 43}
+        width={mobile ? 157 : 189}
+        height={mobile ? 30 : 36}
         priority
         className={mobile ? mobileLogoClass : desktopLogoClass}
       />
