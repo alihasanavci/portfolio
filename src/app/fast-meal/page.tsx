@@ -1,11 +1,10 @@
 import { FastMealCategoryAccess } from "@/components/fast-meal/FastMealCategoryAccess";
 import { FastMealDashboardOverview } from "@/components/fast-meal/FastMealDashboardOverview";
-import { FastMealFooter } from "@/components/fast-meal/FastMealFooter";
+import { Footer } from "@/components/Footer";
 import { FastMealHero } from "@/components/fast-meal/FastMealHero";
 import { FastMealMobileProjectInfo } from "@/components/fast-meal/FastMealMobileProjectInfo";
 import { FastMealMobileDashboardOverview } from "@/components/fast-meal/FastMealMobileDashboardOverview";
 import { FastMealMobileCategoryAccess } from "@/components/fast-meal/FastMealMobileCategoryAccess";
-import { FastMealMobileFooter } from "@/components/fast-meal/FastMealMobileFooter";
 import { FastMealMobileProductScreens } from "@/components/fast-meal/FastMealMobileProductScreens";
 import { FastMealMobileProjectPresentation } from "@/components/fast-meal/FastMealMobileProjectPresentation";
 import { FastMealMobileSecureLogin } from "@/components/fast-meal/FastMealMobileSecureLogin";
@@ -27,7 +26,6 @@ export default function FastMealPage() {
       <FastMealMobileDashboardOverview />
       <FastMealMobileCategoryAccess />
       <FastMealMobileProjectPresentation />
-      <FastMealMobileFooter />
       <FastMealProjectInfo />
       <FastMealProductScreens />
       <FastMealVisualIdentity />
@@ -35,7 +33,7 @@ export default function FastMealPage() {
       <FastMealDashboardOverview />
       <FastMealCategoryAccess />
       <FastMealProjectPresentation />
-      <FastMealFooter />
+      <Footer />
     </main>
   );
 }
