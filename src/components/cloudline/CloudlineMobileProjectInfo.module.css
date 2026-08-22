@@ -1,0 +1,4 @@
+.section {
+  /* Compensates for the sub-pixel remainder left by cap-height trimming. */
+  padding-bottom: 38.375px;
+}

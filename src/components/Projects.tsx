@@ -31,7 +31,7 @@ const projects = [
     image: "/project-weather.jpeg",
     imageAlt: "Mobil hava durumu uygulaması telefon sunumu",
     imageSide: "left",
-    href: null,
+    href: "/cloudline",
   },
   {
     title:

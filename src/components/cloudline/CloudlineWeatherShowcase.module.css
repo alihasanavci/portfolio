@@ -1,0 +1,32 @@
+.section {
+  position: relative;
+  display: none;
+  width: 100vw;
+  height: min(839px, 58.263889vw);
+  overflow: hidden;
+  background: #fafafa;
+}
+
+.scene {
+  position: absolute;
+  top: min(210px, 14.583333vw);
+  left: 50vw;
+  width: min(1238.782715px, 86.026577vw);
+  aspect-ratio: 1238.782715 / 419;
+  transform: translateX(-50%);
+}
+
+.sceneImage {
+  position: absolute;
+  top: max(-151.65065px, -10.531295vw);
+  left: 0;
+  width: 100%;
+  height: auto;
+  max-width: none;
+}
+
+@media (min-width: 768px) {
+  .section {
+    display: block;
+  }
+}
