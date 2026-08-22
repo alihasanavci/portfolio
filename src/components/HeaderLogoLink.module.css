@@ -1,0 +1,14 @@
+.link,
+.link:hover,
+.link:focus,
+.link:focus-visible,
+.link:active {
+  border-bottom: 0;
+  text-decoration: none;
+}
+
+.link::before,
+.link::after {
+  display: none;
+  content: none;
+}

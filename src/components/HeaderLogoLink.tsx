@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { MouseEvent } from "react";
 import { desktopLogoClass, mobileLogoClass } from "./HeaderLayout";
+import styles from "./HeaderLogoLink.module.css";
 
 type HeaderLogoLinkProps = {
   mobile?: boolean;
@@ -36,7 +37,7 @@ export function HeaderLogoLink({ mobile = false, onActivate }: HeaderLogoLinkPro
       href="/"
       aria-label="Ali Hasan Avcı ana sayfa"
       onClick={handleClick}
-      className="cursor-pointer"
+      className={`${styles.link} cursor-pointer`}
     >
       <Image
         src="/logo.svg"
