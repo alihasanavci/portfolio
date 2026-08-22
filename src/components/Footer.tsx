@@ -11,29 +11,29 @@ const linkClass =
   `${styles.link} h-[10px] leading-[10px] whitespace-nowrap`;
 
 const mobileLinkClass =
-  `${styles.link} leading-7 whitespace-nowrap`;
+  `${styles.link} h-[10px] leading-[10px] whitespace-nowrap`;
 
 export function Footer() {
   return (
     <footer
-      className={`${montserrat.className} h-auto w-full bg-black px-7 py-10 text-[#ededed] md:h-[210px] md:px-[200px] md:py-20`}
+      className={`${montserrat.className} h-[180px] w-full bg-black px-7 py-10 text-[#ededed] md:h-[210px] md:px-[200px] md:py-20`}
     >
       <div className="flex w-full flex-col items-start gap-10 md:hidden">
-        <div className="relative h-px w-full shrink-0">
+        <div className="relative h-0 w-full shrink-0">
           <Image
             src="/footer-divider.svg"
             alt=""
             fill
             sizes="calc(100vw - 56px)"
             aria-hidden="true"
-            className="object-fill"
+            className="absolute -top-px left-0 h-px w-full object-fill"
           />
         </div>
 
-        <div className="flex w-full flex-col items-center gap-10 text-[14px] leading-7 font-medium tracking-[0.28px]">
+        <div className="flex w-full flex-col items-center gap-10 text-[14px] leading-[10px] font-medium tracking-[0.28px]">
           <nav
             aria-label="Sosyal bağlantılar"
-            className="flex max-w-full flex-wrap items-center justify-center gap-4"
+            className="flex h-[10px] max-w-full items-center justify-center gap-4"
           >
             <a
               href="https://www.behance.net/alihasanavci"
@@ -54,20 +54,9 @@ export function Footer() {
             >
               Linkedln
             </a>
-            <span aria-hidden="true" className="h-1 w-1.5 leading-1 opacity-50">
-              *
-            </span>
-            <a
-              href="/ali-hasan-avci-cv.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={mobileLinkClass}
-            >
-              CV
-            </a>
           </nav>
 
-          <p className="w-full text-center leading-7 opacity-50">
+          <p className="h-[10px] w-full text-center leading-[10px] whitespace-nowrap opacity-50">
             © 2026 Ali Hasan Avcı. Tüm hakları saklıdır.
           </p>
         </div>
@@ -112,17 +101,6 @@ export function Footer() {
               className={linkClass}
             >
               Linkedln
-            </a>
-            <span aria-hidden="true" className="h-1 w-1.5 leading-1 opacity-50">
-              *
-            </span>
-            <a
-              href="/ali-hasan-avci-cv.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={linkClass}
-            >
-              CV
             </a>
           </nav>
         </div>

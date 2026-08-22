@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Montserrat } from "next/font/google";
 import {
-  mobileCvLinkClass,
   mobileNavigationLinkClass,
   mobileSocialLinkClass,
 } from "./HeaderInteractions";
@@ -83,14 +82,6 @@ export function MobileMenuOverlay({
           >
             <span>Linkedln</span>
             <Image src="/contact-arrow.svg" alt="" width={18} height={18} aria-hidden="true" className="size-[18px] -rotate-135" />
-          </a>
-          <a
-            href="/ali-hasan-avci-cv.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={mobileCvLinkClass}
-          >
-            CV
           </a>
         </nav>
       </div>
