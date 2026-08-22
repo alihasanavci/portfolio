@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import buttonStyles from "./Button.module.css";
+import styles from "./Projects.module.css";
 import { SectionScrollButton } from "./SectionScrollButton";
 import { Montserrat } from "next/font/google";
 
@@ -91,7 +92,7 @@ function ProjectImage({ project }: { project: (typeof projects)[number] }) {
         alt={project.imageAlt}
         fill
         sizes="564px"
-        className="object-cover"
+        className={`${styles.image} object-cover`}
       />
     </div>
   );
@@ -100,7 +101,7 @@ function ProjectImage({ project }: { project: (typeof projects)[number] }) {
 function MobileProject({ project }: { project: (typeof projects)[number] }) {
   return (
     <ProjectCardLink href={project.href}>
-      <article className="flex w-full flex-col items-start gap-10 rounded-[24px] border border-[#262626] p-5">
+      <article className={`${styles.card} flex w-full flex-col items-start gap-10 rounded-[24px] border border-[#262626] p-5`}>
       <div className="flex w-full flex-col items-start gap-10">
         <div className="flex w-full flex-col items-start gap-5 font-medium">
           <h3 className="w-full text-[24px] leading-7 text-white">
@@ -127,7 +128,7 @@ function MobileProject({ project }: { project: (typeof projects)[number] }) {
           alt={project.imageAlt}
           fill
           sizes="(max-width: 767px) calc(100vw - 96px), 304px"
-          className="object-cover"
+          className={`${styles.image} object-cover`}
         />
       </div>
       </article>
@@ -219,7 +220,7 @@ export function Projects() {
         <div className="flex w-full flex-col gap-10">
           {projects.map((project) => (
             <ProjectCardLink key={project.title} href={project.href}>
-              <article className="flex h-[580px] w-full items-start gap-20 rounded-[24px] border border-[#262626] p-10">
+              <article className={`${styles.card} flex h-[580px] w-full items-start gap-20 rounded-[24px] border border-[#262626] p-10`}>
                 {project.imageSide === "left" ? (
                   <>
                     <ProjectImage project={project} />

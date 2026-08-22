@@ -1,0 +1,31 @@
+.card {
+  cursor: pointer;
+  transition:
+    border-color 375ms ease,
+    transform 120ms ease;
+}
+
+.image {
+  transition: transform 375ms ease;
+}
+
+.card:active {
+  transform: scale(0.995);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    border-color: #3a3a3a;
+  }
+
+  .card:hover .image {
+    transform: scale(1.02);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .image {
+    transition-duration: 1ms;
+  }
+}
