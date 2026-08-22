@@ -59,7 +59,7 @@ export function FastMealHero() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-1/2 z-0 h-[290px] w-screen -translate-x-1/2 bg-[#fafafa]" />
+      <div className="absolute inset-x-0 bottom-0 z-0 h-[290px] bg-[#fafafa]" />
 
       <div
         className={`${desktopContainer} top-[421px] z-10 h-[580px] overflow-visible rounded-[24px]`}

@@ -13,7 +13,7 @@ import { CloudlineVisualIdentity } from "@/components/cloudline/CloudlineVisualI
 import { CloudlineWeatherOverview } from "@/components/cloudline/CloudlineWeatherOverview";
 import { CloudlineWeatherShowcase } from "@/components/cloudline/CloudlineWeatherShowcase";
 import { Footer } from "@/components/Footer";
-import styles from "./CloudlinePage.module.css";
+import { ResponsiveDesktopCanvas } from "@/components/ResponsiveDesktopCanvas";
 
 export default function CloudlinePage() {
   return (
@@ -29,8 +29,8 @@ export default function CloudlinePage() {
         <Footer />
       </div>
 
-      <div className={`${styles.desktopShell} hidden md:block`}>
-        <div className={styles.desktopCanvas}>
+      <div className="hidden md:block">
+        <ResponsiveDesktopCanvas>
           <CloudlineHero />
           <CloudlineProjectInfo />
           <CloudlineWeatherShowcase />
@@ -39,7 +39,7 @@ export default function CloudlinePage() {
           <CloudlineLocationTracking />
           <CloudlineProjectPresentation />
           <Footer />
-        </div>
+        </ResponsiveDesktopCanvas>
       </div>
     </main>
   );

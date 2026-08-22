@@ -14,26 +14,29 @@ import { FastMealProductScreens } from "@/components/fast-meal/FastMealProductSc
 import { FastMealProjectPresentation } from "@/components/fast-meal/FastMealProjectPresentation";
 import { FastMealSecureLogin } from "@/components/fast-meal/FastMealSecureLogin";
 import { FastMealVisualIdentity } from "@/components/fast-meal/FastMealVisualIdentity";
+import { ResponsiveDesktopCanvas } from "@/components/ResponsiveDesktopCanvas";
 
 export default function FastMealPage() {
   return (
     <main className="min-h-screen w-full overflow-x-hidden bg-[#fafafa]">
-      <FastMealHero />
-      <FastMealMobileProjectInfo />
-      <FastMealMobileProductScreens />
-      <FastMealMobileVisualIdentity />
-      <FastMealMobileSecureLogin />
-      <FastMealMobileDashboardOverview />
-      <FastMealMobileCategoryAccess />
-      <FastMealMobileProjectPresentation />
-      <FastMealProjectInfo />
-      <FastMealProductScreens />
-      <FastMealVisualIdentity />
-      <FastMealSecureLogin />
-      <FastMealDashboardOverview />
-      <FastMealCategoryAccess />
-      <FastMealProjectPresentation />
-      <Footer />
+      <ResponsiveDesktopCanvas>
+        <FastMealHero />
+        <FastMealMobileProjectInfo />
+        <FastMealMobileProductScreens />
+        <FastMealMobileVisualIdentity />
+        <FastMealMobileSecureLogin />
+        <FastMealMobileDashboardOverview />
+        <FastMealMobileCategoryAccess />
+        <FastMealMobileProjectPresentation />
+        <FastMealProjectInfo />
+        <FastMealProductScreens />
+        <FastMealVisualIdentity />
+        <FastMealSecureLogin />
+        <FastMealDashboardOverview />
+        <FastMealCategoryAccess />
+        <FastMealProjectPresentation />
+        <Footer />
+      </ResponsiveDesktopCanvas>
     </main>
   );
 }

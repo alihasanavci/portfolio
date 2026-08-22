@@ -1,7 +1,7 @@
 .section {
   position: relative;
   display: none;
-  width: 100vw;
+  width: 100%;
   height: min(839px, 58.263889vw);
   overflow: hidden;
   background: #fafafa;
@@ -10,7 +10,7 @@
 .scene {
   position: absolute;
   top: min(210px, 14.583333vw);
-  left: 50vw;
+  left: 50%;
   width: min(1238.782715px, 86.026577vw);
   aspect-ratio: 1238.782715 / 419;
   transform: translateX(-50%);
