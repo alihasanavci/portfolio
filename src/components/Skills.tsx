@@ -49,6 +49,9 @@ const skillGroups = [
   },
 ] as const;
 
+const mobileSkillCardClass =
+  "flex w-full flex-col items-start gap-5 rounded-[16px] border border-[#262626] bg-[#181818] px-5 pt-5 pb-5";
+
 export function Skills() {
   return (
     <section
@@ -88,15 +91,17 @@ export function Skills() {
           {skillGroups.map((group) => (
             <article
               key={`mobile-${group.title}`}
-              className="flex w-full flex-col items-start gap-5 rounded-[16px] border border-[#262626] bg-[#181818] p-5"
+              className={mobileSkillCardClass}
             >
               <h3 className="text-[20px] leading-7 font-medium whitespace-nowrap text-white">
                 {group.title}
               </h3>
 
-              <ul className="flex w-full list-disc flex-col gap-1 pl-6 text-[16px] leading-9 font-normal text-[#eeeeee]">
+              <ul className="flex w-full list-disc flex-col gap-1 pl-6 text-[16px] leading-none font-normal text-[#eeeeee]">
                 {group.skills.map((skill) => (
-                  <li key={skill}>{skill}</li>
+                  <li key={skill} className="h-9 leading-9">
+                    {skill}
+                  </li>
                 ))}
               </ul>
             </article>
