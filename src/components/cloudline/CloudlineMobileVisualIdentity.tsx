@@ -32,11 +32,11 @@ export function CloudlineMobileVisualIdentity() {
       <div className={styles.visualGroup}>
         <div className={styles.presentation}>
           <Image
-            src="/cloudline/visual-identity/presentation-source.png"
+            src="/cloudline/visual-identity/cloudline-appstore-v2.png"
             alt="Cloudline App Store marka sunumu"
-            width={403}
-            height={403}
-            sizes="(max-width: 767px) 117vw, 403px"
+            fill
+            unoptimized
+            sizes="calc(100vw - 56px)"
             className={styles.presentationImage}
           />
         </div>

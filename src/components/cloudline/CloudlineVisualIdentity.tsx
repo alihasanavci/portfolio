@@ -32,12 +32,12 @@ export function CloudlineVisualIdentity() {
         <div className="flex w-full flex-col items-start gap-10">
           <div className="relative h-[573.444px] w-full overflow-hidden rounded-[36px] bg-black">
             <Image
-              src="/cloudline/visual-identity/presentation-source.png"
+              src="/cloudline/visual-identity/cloudline-appstore-v2.png"
               alt="Cloudline App Store marka sunumu"
-              width={1212}
-              height={1212}
-              sizes="1212px"
-              className="absolute top-[32px] left-[-86px] h-[1212px] w-[1212px] max-w-none object-cover"
+              fill
+              unoptimized
+              sizes="1040px"
+              className="object-cover"
             />
           </div>
 
