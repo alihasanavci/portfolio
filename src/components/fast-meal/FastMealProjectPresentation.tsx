@@ -28,7 +28,7 @@ export function FastMealProjectPresentation() {
           </p>
         </div>
 
-        <div className="h-[5767.506px] w-full overflow-hidden bg-[#101010]">
+        <div className="h-[5767.506px] w-full overflow-hidden rounded-[36px] bg-[#101010]">
           <Image
             src="/fast-meal/project-presentation.png"
             alt="Fast Meal kapsamlı proje sunumu"

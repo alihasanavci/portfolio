@@ -29,7 +29,7 @@ export function CloudlineProjectPresentation() {
           </p>
         </div>
 
-        <div className="h-[4443.075px] w-full overflow-hidden bg-[#101010]">
+        <div className="h-[4443.075px] w-full overflow-hidden rounded-[36px] bg-[#101010]">
           <Image
             src="/cloudline/project-presentation/cloudline-presentation.png"
             alt="Cloudline kapsamlı proje sunumu"
