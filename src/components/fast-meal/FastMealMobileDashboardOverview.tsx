@@ -28,7 +28,7 @@ export function FastMealMobileDashboardOverview() {
         </p>
       </div>
 
-      <div className="relative aspect-[346/190.781] w-full overflow-hidden rounded-[7.985px] bg-black">
+      <div className="relative aspect-[346/190.781] w-full overflow-hidden rounded-[24px] bg-black">
         <Image
           src="/fast-meal/dashboard-overview-mobile.png"
           alt="Fast Meal yönetici dashboard ekranı"

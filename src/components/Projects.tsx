@@ -42,7 +42,7 @@ const projects = [
     image: "/project-crypto.jpeg",
     imageAlt: "Kripto işlem platformu dizüstü bilgisayar sunumu",
     imageSide: "right",
-    href: null,
+    href: "/tradeviewer",
   },
 ] as const;
 

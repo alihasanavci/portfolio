@@ -7,7 +7,7 @@ const montserrat = Montserrat({
 });
 
 const mobileScreenClass =
-  "relative aspect-[346/190.781] w-full overflow-hidden rounded-[7.985px] bg-black";
+  "relative aspect-[346/190.781] w-full overflow-hidden rounded-[24px] bg-black";
 
 const mobileImageClass =
   "h-full w-full object-fill";
