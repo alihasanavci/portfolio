@@ -52,7 +52,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className={mobileLinkClass}
             >
-              Linkedln
+              LinkedIn
             </a>
           </nav>
 
@@ -100,7 +100,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className={linkClass}
             >
-              Linkedln
+              LinkedIn
             </a>
           </nav>
         </div>

@@ -120,7 +120,7 @@ export function FastMealMobileHero() {
                 src="/fast-meal/hero-mobile-base.png"
                 alt="Fast Meal POS dashboard arayüzü"
                 fill
-                priority
+                loading="lazy"
                 sizes="(max-width: 767px) 160vw, 0px"
                 className="object-cover"
               />
@@ -128,7 +128,7 @@ export function FastMealMobileHero() {
                 src="/fast-meal/hero-mobile-overlay.png"
                 alt=""
                 fill
-                priority
+                loading="lazy"
                 aria-hidden="true"
                 sizes="(max-width: 767px) 160vw, 0px"
                 className="object-cover"
@@ -141,7 +141,7 @@ export function FastMealMobileHero() {
           alt=""
           width={1480}
           height={987}
-          priority
+          loading="lazy"
           aria-hidden="true"
           sizes="(max-width: 767px) 149.53vw, 0px"
           className="pointer-events-none absolute top-1/2 left-[49.889%] z-20 h-[129.315%] w-[159.024%] max-w-none -translate-x-1/2 -translate-y-[48.793%] object-fill"

@@ -80,7 +80,7 @@ export function MobileMenuOverlay({
             rel="noopener noreferrer"
             className={mobileSocialLinkClass}
           >
-            <span>Linkedln</span>
+            <span>LinkedIn</span>
             <Image src="/contact-arrow.svg" alt="" width={18} height={18} aria-hidden="true" className="size-[18px] -rotate-135" />
           </a>
         </nav>

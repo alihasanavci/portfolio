@@ -121,7 +121,7 @@ export function CloudlineMobileHero() {
             alt="Cloudline mobil hava durumu uygulaması sunumu"
             width={3186}
             height={4096}
-            priority
+            loading="lazy"
             sizes="(max-width: 767px) 133vw, 0px"
             className="absolute top-0 left-[-0.02%] h-[121.44%] w-[100.04%] max-w-none object-fill"
           />

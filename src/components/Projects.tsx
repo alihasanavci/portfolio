@@ -17,7 +17,7 @@ const projects = [
     description:
       "Garson, mutfak ve yönetim ekipleri arasındaki süreci hızlandıran; sipariş, iletişim ve satış takibini tek platformda buluşturan restoran POS deneyimi.",
     tags: ["UI/UX Design", "Product Design", "Branding"],
-    image: "/project-pos.jpeg",
+    image: "/fast-meal/homepage-thumbnail.jpeg",
     imageAlt: "Restoran POS arayüzü tablet sunumu",
     imageSide: "right",
     href: "/fast-meal",
@@ -91,6 +91,7 @@ function ProjectImage({ project }: { project: (typeof projects)[number] }) {
         src={project.image}
         alt={project.imageAlt}
         fill
+        unoptimized={project.href === "/fast-meal"}
         sizes="564px"
         className={`${styles.image} object-cover`}
       />
@@ -127,6 +128,7 @@ function MobileProject({ project }: { project: (typeof projects)[number] }) {
           src={project.image}
           alt={project.imageAlt}
           fill
+          unoptimized={project.href === "/fast-meal"}
           sizes="(max-width: 767px) calc(100vw - 96px), 304px"
           className={`${styles.image} object-cover`}
         />
