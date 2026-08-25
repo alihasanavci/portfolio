@@ -7,6 +7,7 @@ import { HeaderLogoLink } from "../HeaderLogoLink";
 import { mobileHeaderLayoutClass } from "../HeaderLayout";
 import { MobileMenuOverlay } from "../MobileMenuOverlay";
 import { useSectionNavigation } from "../SectionNavigation";
+import { lockBodyScroll } from "../bodyScrollLock";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -31,8 +32,7 @@ export function CloudlineMobileHero() {
   useEffect(() => {
     if (!isMenuOpen) return;
 
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const unlockBodyScroll = lockBodyScroll();
 
     function closeOnEscape(event: KeyboardEvent) {
       if (event.key === "Escape") setIsMenuOpen(false);
@@ -41,7 +41,7 @@ export function CloudlineMobileHero() {
     window.addEventListener("keydown", closeOnEscape);
 
     return () => {
-      document.body.style.overflow = previousOverflow;
+      unlockBodyScroll();
       window.removeEventListener("keydown", closeOnEscape);
     };
   }, [isMenuOpen]);

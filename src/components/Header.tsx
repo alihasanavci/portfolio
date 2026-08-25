@@ -11,6 +11,7 @@ import {
   headerNavigationItems,
   mobileHeaderLayoutClass,
 } from "./HeaderLayout";
+import { lockBodyScroll } from "./bodyScrollLock";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,8 +31,7 @@ export function Header() {
   useEffect(() => {
     if (!isMenuOpen) return;
 
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const unlockBodyScroll = lockBodyScroll();
 
     function closeOnEscape(event: KeyboardEvent) {
       if (event.key === "Escape") setIsMenuOpen(false);
@@ -40,7 +40,7 @@ export function Header() {
     window.addEventListener("keydown", closeOnEscape);
 
     return () => {
-      document.body.style.overflow = previousOverflow;
+      unlockBodyScroll();
       window.removeEventListener("keydown", closeOnEscape);
     };
   }, [isMenuOpen]);

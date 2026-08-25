@@ -14,6 +14,7 @@ import {
   mobileHeaderLayoutClass,
 } from "../HeaderLayout";
 import { MobileMenuOverlay } from "../MobileMenuOverlay";
+import { lockBodyScroll } from "../bodyScrollLock";
 import { ResponsiveDesktopCanvas } from "../ResponsiveDesktopCanvas";
 import {
   SectionNavigationButton,
@@ -112,12 +113,11 @@ function MobileHero() {
 
   useEffect(() => {
     if (!open) return;
-    const oldOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const unlockBodyScroll = lockBodyScroll();
     const onKey = (event: KeyboardEvent) => event.key === "Escape" && setOpen(false);
     window.addEventListener("keydown", onKey);
     return () => {
-      document.body.style.overflow = oldOverflow;
+      unlockBodyScroll();
       window.removeEventListener("keydown", onKey);
     };
   }, [open]);
