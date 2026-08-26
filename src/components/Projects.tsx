@@ -1,9 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import buttonStyles from "./Button.module.css";
 import styles from "./Projects.module.css";
-import { SectionScrollButton } from "./SectionScrollButton";
 import { Montserrat } from "next/font/google";
 
 const montserrat = Montserrat({
@@ -43,6 +44,17 @@ const projects = [
     imageAlt: "Kripto işlem platformu dizüstü bilgisayar sunumu",
     imageSide: "right",
     href: "/tradeviewer",
+  },
+  {
+    title:
+      "Lüks ürün deneyimini daha rafine bir dijital yapıya taşıyan web tasarımı",
+    description:
+      "Pacha of London’ın premium saat, mücevher ve aksesuar koleksiyonlarını daha rafine, sade ve güven veren bir dijital deneyimle sunmak için tasarlanan web arayüzü.",
+    tags: ["UI/UX Design", "Web Design", "Visual Design"],
+    image: "/pacha-of-london/homepage-thumbnail.png",
+    imageAlt: "Pacha of London web sitesi dizüstü bilgisayar sunumu",
+    imageSide: "left",
+    href: null,
   },
 ] as const;
 
@@ -138,11 +150,34 @@ function MobileProject({ project }: { project: (typeof projects)[number] }) {
   );
 }
 
+function ShowAllProjectsButton({ onClick }: { onClick: () => void }) {
+  return (
+    <div className="flex h-[52px] w-full items-center justify-center">
+      <button
+        type="button"
+        onClick={onClick}
+        className={`${buttonStyles.button} ${buttonStyles.secondary} flex h-[52px] items-center justify-center gap-1 rounded-full px-6 py-5 text-[16px] leading-normal font-normal`}
+      >
+        <span>Tüm Projelerimi Gör</span>
+        <span
+          aria-hidden="true"
+          className="flex size-[25.456px] items-center justify-center text-[20px] leading-none"
+        >
+          ↗
+        </span>
+      </button>
+    </div>
+  );
+}
+
 export function Projects() {
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  const visibleProjects = showAllProjects ? projects : projects.slice(0, 3);
+
   return (
     <section
       id="projeler"
-      className={`${montserrat.className} h-auto w-full bg-black px-7 py-10 text-white md:h-[2470px] md:px-[200px] md:py-[120px]`}
+      className={`${montserrat.className} h-auto w-full bg-black px-7 py-10 text-white md:px-[200px] md:py-[120px]`}
     >
       <div className="flex w-full flex-col items-start gap-10 md:hidden">
         <header className="flex w-full flex-col items-start gap-10">
@@ -179,10 +214,14 @@ export function Projects() {
         </header>
 
         <div className="flex w-full flex-col items-start gap-10">
-          {projects.map((project) => (
+          {visibleProjects.map((project) => (
             <MobileProject key={`mobile-${project.title}`} project={project} />
           ))}
         </div>
+
+        {!showAllProjects && (
+          <ShowAllProjectsButton onClick={() => setShowAllProjects(true)} />
+        )}
       </div>
 
       <div className="mx-auto hidden w-[1040px] flex-col items-start gap-20 md:flex">
@@ -220,7 +259,7 @@ export function Projects() {
         </header>
 
         <div className="flex w-full flex-col gap-10">
-          {projects.map((project) => (
+          {visibleProjects.map((project) => (
             <ProjectCardLink key={project.title} href={project.href}>
               <article className={`${styles.card} flex h-[580px] w-full items-start gap-20 rounded-[24px] border border-[#262626] p-10`}>
                 {project.imageSide === "left" ? (
@@ -239,20 +278,9 @@ export function Projects() {
           ))}
         </div>
 
-        <div className="flex h-[52px] w-full items-center justify-center">
-          <SectionScrollButton
-            sectionId="projeler"
-            className={`${buttonStyles.button} ${buttonStyles.secondary} flex h-[52px] items-center justify-center gap-1 rounded-full px-6 py-5 text-[16px] leading-normal font-normal`}
-          >
-            <span>Tüm Projelerimi Gör</span>
-            <span
-              aria-hidden="true"
-              className="flex size-[25.456px] items-center justify-center text-[20px] leading-none"
-            >
-              ↗
-            </span>
-          </SectionScrollButton>
-        </div>
+        {!showAllProjects && (
+          <ShowAllProjectsButton onClick={() => setShowAllProjects(true)} />
+        )}
       </div>
     </section>
   );
