@@ -54,7 +54,7 @@ const projects = [
     image: "/pacha-of-london/homepage-thumbnail.png",
     imageAlt: "Pacha of London web sitesi dizüstü bilgisayar sunumu",
     imageSide: "left",
-    href: null,
+    href: "/pacha-of-london",
   },
 ] as const;
 
