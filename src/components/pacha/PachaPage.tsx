@@ -1,7 +1,13 @@
 import Image from "next/image";
+import { Montserrat } from "next/font/google";
 import type { ReactNode } from "react";
 import presentationCtaStyles from "../fast-meal/FastMealProjectPresentation.module.css";
 import styles from "./PachaPage.module.css";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["500", "600"],
+});
 
 const info = {
   about: "Pacha of London, Londra merkezli lüks bir saat ve mücevher butiği için tasarladığım premium perakende web deneyimidir. Platform; nadir saatler, fine jewellery, luxury bags ve premium hizmetleri markanın sofistike kimliğini yansıtan rafine bir dijital yapı içinde sunar. Projede amaç, yüksek segment ürünleri güçlü bir görsel hiyerarşiyle öne çıkarırken kullanıcıların koleksiyonları rahatça keşfedebileceği, güven veren ve modern bir alışveriş deneyimi oluşturmaktı.",
@@ -61,7 +67,7 @@ function ProjectPresentation() {
 }
 
 export function PachaPage({ header }: { header: ReactNode }) {
-  return <div className={styles.page}>
+  return <div className={`${montserrat.className} ${styles.page}`}>
     <section className={styles.hero} data-figma-node="2417:175,2417:1115">
       <div className={styles.header}>{header}</div><div className={styles.heroText}><h1>Pacha Of London</h1><p>Luxury Watches &amp; Jewellery</p></div><div className={styles.heroLight} />
       <picture><source media="(max-width: 767px)" srcSet="/pacha-of-london/hero-mobile.png" /><img className={styles.heroImage} src="/pacha-of-london/hero-desktop.png" alt="Pacha of London lüks saat ve mücevher web sitesi" /></picture>
