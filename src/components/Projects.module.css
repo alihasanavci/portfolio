@@ -9,6 +9,15 @@
   transition: transform 375ms ease;
 }
 
+.aureliImage {
+  inset: auto !important;
+  top: -52px !important;
+  left: -137px !important;
+  width: 838px !important;
+  height: 559px !important;
+  max-width: none !important;
+}
+
 .card:active {
   transform: scale(0.995);
 }
@@ -27,5 +36,14 @@
   .card,
   .image {
     transition-duration: 1ms;
+  }
+}
+
+@media (max-width: 767px) {
+  .aureliImage {
+    top: -50px !important;
+    left: -161px !important;
+    width: 632px !important;
+    height: 422px !important;
   }
 }

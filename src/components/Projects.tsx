@@ -56,6 +56,17 @@ const projects = [
     imageSide: "left",
     href: "/pacha-of-london",
   },
+  {
+    title:
+      "Zamansız mücevherleri sade ve premium bir alışveriş deneyimiyle buluşturan web tasarımı",
+    description:
+      "AURELI’nin yüzük, kolye, küpe ve bileklik koleksiyonlarını güçlü görsel hiyerarşi ve sade bir e-ticaret yapısıyla sunan dijital deneyim. Kullanıcıların ürünleri kolayca keşfetmesini sağlarken markanın zarif, güven veren ve premium karakterini her adımda korumayı hedefledim.",
+    tags: ["UI/UX Design", "E-commerce Website Design"],
+    image: "/aureli/homepage-thumbnail.jpeg",
+    imageAlt: "Aureli mücevher mağazası dizüstü bilgisayar sunumu",
+    imageSide: "right",
+    href: "/aureli",
+  },
 ] as const;
 
 function ProjectCardLink({
@@ -103,9 +114,9 @@ function ProjectImage({ project }: { project: (typeof projects)[number] }) {
         src={project.image}
         alt={project.imageAlt}
         fill
-        unoptimized={project.href === "/fast-meal"}
+        unoptimized={project.href === "/fast-meal" || project.href === "/aureli"}
         sizes="564px"
-        className={`${styles.image} object-cover`}
+        className={`${styles.image} ${project.href === "/aureli" ? styles.aureliImage : ""} object-cover`}
       />
     </div>
   );
@@ -140,9 +151,9 @@ function MobileProject({ project }: { project: (typeof projects)[number] }) {
           src={project.image}
           alt={project.imageAlt}
           fill
-          unoptimized={project.href === "/fast-meal"}
+          unoptimized={project.href === "/fast-meal" || project.href === "/aureli"}
           sizes="(max-width: 767px) calc(100vw - 96px), 304px"
-          className={`${styles.image} object-cover`}
+          className={`${styles.image} ${project.href === "/aureli" ? styles.aureliImage : ""} object-cover`}
         />
       </div>
       </article>
