@@ -172,9 +172,15 @@ function ShowAllProjectsButton({ onClick }: { onClick: () => void }) {
         <span>Tüm Projelerimi Gör</span>
         <span
           aria-hidden="true"
-          className="flex size-[25.456px] items-center justify-center text-[20px] leading-none"
+          className="flex size-[25.456px] items-center justify-center"
         >
-          ↗
+          <Image
+            src="/projects-arrow.svg"
+            alt=""
+            width={18}
+            height={18}
+            className="size-[18px] -rotate-[135deg]"
+          />
         </span>
       </button>
     </div>

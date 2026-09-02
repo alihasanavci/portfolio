@@ -3,12 +3,25 @@
 .link:focus,
 .link:focus-visible,
 .link:active {
-  border-bottom: 0;
+  display: inline-flex;
+  line-height: 0;
+  border: 0;
+  outline: 0;
+  background: none;
+  box-shadow: none;
   text-decoration: none;
 }
 
 .link::before,
-.link::after {
-  display: none;
+.link::after,
+.link:hover::before,
+.link:hover::after,
+.link:focus::before,
+.link:focus::after,
+.link:focus-visible::before,
+.link:focus-visible::after,
+.link:active::before,
+.link:active::after {
+  display: none !important;
   content: none;
 }
