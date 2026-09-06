@@ -18,17 +18,49 @@
   max-width: none !important;
 }
 
+.projectsCta {
+  color: #fff;
+  background: transparent;
+}
+
+.projectsCta:focus,
+.projectsCta:focus-visible {
+  color: #fff;
+  background: transparent;
+}
+
+.projectsCtaArrow {
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex: none;
+  transform: rotate(-135deg);
+  background-color: currentColor;
+  mask: url("/projects-arrow.svg") center / 18px 18px no-repeat;
+  -webkit-mask: url("/projects-arrow.svg") center / 18px 18px no-repeat;
+}
+
 .card:active {
   transform: scale(0.995);
 }
 
 @media (hover: hover) and (pointer: fine) {
+  .projectsCta:hover {
+    color: #dd2590;
+  }
+
   .card:hover {
     border-color: #3a3a3a;
   }
 
   .card:hover .image {
     transform: scale(1.02);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .projectsCta:active {
+    color: #dd2590;
   }
 }
 

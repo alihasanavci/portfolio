@@ -167,20 +167,14 @@ function ShowAllProjectsButton({ onClick }: { onClick: () => void }) {
       <button
         type="button"
         onClick={onClick}
-        className={`${buttonStyles.button} ${buttonStyles.secondary} flex h-[52px] items-center justify-center gap-1 rounded-full px-6 py-5 text-[16px] leading-normal font-normal`}
+        className={`${buttonStyles.button} ${styles.projectsCta} flex h-[52px] items-center justify-center gap-1 rounded-full px-6 py-5 text-[16px] leading-normal font-normal`}
       >
         <span>Tüm Projelerimi Gör</span>
         <span
           aria-hidden="true"
           className="flex size-[25.456px] items-center justify-center"
         >
-          <Image
-            src="/projects-arrow.svg"
-            alt=""
-            width={18}
-            height={18}
-            className="size-[18px] -rotate-[135deg]"
-          />
+          <span className={styles.projectsCtaArrow} />
         </span>
       </button>
     </div>
