@@ -5,3 +5,5 @@
 @media(min-width:768px){.heroText{left:max(200px,calc(50% - 520px))}.heroImage{left:max(100px,calc(50% - 620px))}}
 .infoBlock h2,.sectionIntro h2{text-box-trim:none}
 .heroText h1{text-box-edge:cap alphabetic;text-box-trim:trim-both}.heroText p{color:#ededed}
+.featureImage{border-radius:36px}
+@media(max-width:767px){.featureImage{border-radius:24px}}

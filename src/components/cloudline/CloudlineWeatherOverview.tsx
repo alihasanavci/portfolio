@@ -29,7 +29,7 @@ export function CloudlineWeatherOverview() {
           </p>
         </div>
 
-        <div className="relative h-[573.444px] w-full overflow-hidden rounded-[24px] bg-black">
+        <div className="relative h-[573.444px] w-full overflow-hidden rounded-[36px] bg-black">
           <Image
             src="/cloudline/weather-overview/main-screen.png"
             alt="Cloudline ana hava durumu ekranı"

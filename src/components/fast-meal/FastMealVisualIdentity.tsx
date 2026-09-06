@@ -30,7 +30,7 @@ export function FastMealVisualIdentity() {
         </div>
 
         <div className="flex w-full flex-col items-start gap-10">
-          <div className="relative h-[573.444px] w-full overflow-hidden rounded-[24px] bg-black">
+          <div className="relative h-[573.444px] w-full overflow-hidden rounded-[36px] bg-black">
             <Image
               src="/fast-meal/visual-identity-dashboard.png"
               alt="Fast Meal görsel kimliğinin dashboard üzerinde uygulanışı"
@@ -42,7 +42,7 @@ export function FastMealVisualIdentity() {
           </div>
 
           <div className="flex w-full items-start gap-10">
-            <div className="flex h-[260px] w-[500px] items-center justify-center rounded-[24px] border border-[rgba(51,51,51,0.2)] bg-white">
+            <div className="flex h-[260px] w-[501px] items-center justify-center rounded-[36px] border border-[rgba(51,51,51,0.2)] bg-white">
               <Image
                 src="/fast-meal/logo-yellow.svg"
                 alt="Sarı Fast Meal logosu"
@@ -53,7 +53,7 @@ export function FastMealVisualIdentity() {
               />
             </div>
 
-            <div className="flex h-[260px] w-[500px] items-center justify-center rounded-[24px] bg-[#ffca40]">
+            <div className="flex h-[260px] w-[499px] items-center justify-center rounded-[36px] bg-[#ffca40]">
               <Image
                 src="/fast-meal/logo-white.svg"
                 alt="Beyaz Fast Meal logosu"

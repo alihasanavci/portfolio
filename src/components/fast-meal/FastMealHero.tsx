@@ -62,9 +62,9 @@ export function FastMealHero() {
       <div className="absolute inset-x-0 bottom-0 z-0 h-[290px] bg-[#fafafa]" />
 
       <div
-        className={`${desktopContainer} top-[421px] z-10 h-[580px] overflow-visible rounded-[24px]`}
+        className={`${desktopContainer} top-[421px] z-10 h-[580px] overflow-visible rounded-[36px]`}
       >
-        <div className="absolute inset-0 overflow-hidden rounded-[24px] bg-white">
+        <div className="absolute inset-0 overflow-hidden rounded-[36px] bg-white">
           <Image
             src="/fast-meal/hero-base.png"
             alt="Fast Meal POS dashboard arayüzü"

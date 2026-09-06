@@ -7,7 +7,7 @@ const montserrat = Montserrat({
 });
 
 const screenClass =
-  "h-[573.444px] w-full overflow-hidden rounded-[24px] bg-black";
+  "h-[573.444px] w-full overflow-hidden rounded-[36px] bg-black";
 
 export function FastMealCategoryAccess() {
   return (

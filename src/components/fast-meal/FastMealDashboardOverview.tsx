@@ -29,7 +29,7 @@ export function FastMealDashboardOverview() {
           </p>
         </div>
 
-        <div className="h-[573.444px] w-full overflow-hidden rounded-[24px] bg-black">
+        <div className="h-[573.444px] w-full overflow-hidden rounded-[36px] bg-black">
           <Image
             src="/fast-meal/dashboard-overview.png"
             alt="Fast Meal yönetici dashboard ekranı"
