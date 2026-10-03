@@ -8,8 +8,8 @@ export const mobileHeaderLayoutClass =
   "fixed inset-x-0 top-0 flex h-[94px] w-full items-center justify-between bg-black px-7 py-8 md:hidden";
 
 export const desktopLogoClass =
-  "relative h-[36px] w-[188.714px] -translate-y-[3.5px]";
-export const mobileLogoClass = "h-[30px] w-[156.807px]";
+  "relative h-[22px] w-[162.811px] -translate-y-[3.5px]";
+export const mobileLogoClass = "h-[18px] w-[133.209px]";
 
 export const headerNavigationItems = [
   { label: "Hakkımda", sectionId: "hakkimda", width: 74 },
